@@ -52,7 +52,10 @@ namespace WyldTerm_PC
                 string sniff_cmd = "";
                 if (Type_S.IsChecked == true) sniff_cmd = "Sniff";
                 else sniff_cmd = "Uplink";
-                win.Send_Command(sniff_cmd + ", " + Config_Name.Text + ", " + Duration.Text + ", " + Delay.Text);
+                string sniff_method = "";
+                if (Method_S.IsChecked == true) sniff_method = "True";
+                else sniff_method = "False";
+                win.Send_Command(sniff_cmd + ", " + Config_Name.Text + ", " + Duration.Text + ", " + Delay.Text + ", " + sniff_method );
                 Stop_Sniff.IsEnabled = true;
                 Start_Sniff.IsEnabled = false;
             }
@@ -78,6 +81,7 @@ namespace WyldTerm_PC
             int Del = int.Parse(Delay.Text);
             if (Del < 0 || Del > 4320) return true;
             if (Type_S.IsChecked == false && Type_U.IsChecked == false) return true;
+            if (Method_C.IsChecked == false && Method_S.IsChecked == false) return true;
             return false;
         }
 

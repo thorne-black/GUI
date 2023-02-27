@@ -5,6 +5,7 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationIcon>wyld_logo_small.ico</ApplicationIcon>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,6 +15,10 @@
 
   <ItemGroup>
     <Page Remove="Resources\Style.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wyld_logo_small.ico" />
   </ItemGroup>
 
   <ItemGroup>

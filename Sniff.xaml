@@ -11,9 +11,9 @@
             <ColumnDefinition Width="10*"/>
             <ColumnDefinition Width="90*"/>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="130*"/>
             <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="120*"/>
+            <ColumnDefinition Width="130*"/>
             <ColumnDefinition Width="50*"/>
             <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
@@ -40,11 +40,15 @@
         <TextBox x:Name="Delay"  Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBox}" Margin="0,0,0,2"></TextBox>
         <TextBlock Grid.Row="3" Grid.Column="5" Style="{StaticResource Subheading}" Margin="0,0,0,2">(0 - 4320 mins)</TextBlock>
         
-        <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource Subheading}">Type: </TextBlock>
-        <RadioButton x:Name="Type_S" Grid.Row="4" Grid.Column="3" Style="{StaticResource Radio}">Sniff Only</RadioButton>
-        <RadioButton x:Name="Type_U" Grid.Row="4" Grid.Column="5" Style="{StaticResource Radio}">Uplink</RadioButton>
-        
-        
+        <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Type: </TextBlock>
+        <RadioButton x:Name="Type_S" GroupName="Type" Grid.Row="4" Grid.Column="3" Style="{StaticResource Radio}">Sniff Only</RadioButton>
+        <RadioButton x:Name="Type_U" GroupName="Type" Grid.Row="4" Grid.Column="5" Style="{StaticResource Radio}">Uplink</RadioButton>
+
+        <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Method:</TextBlock>
+        <RadioButton x:Name="Method_C" GroupName="Method" Grid.Row="5" Grid.Column="3" Style="{StaticResource Radio}">Sniff Continuously</RadioButton>
+        <RadioButton x:Name="Method_S" GroupName="Method" Grid.Row="5" Grid.Column="5" Style="{StaticResource Radio}">Sleep Until Beacon</RadioButton>
+
+
         <Button x:Name="Start_Sniff" Grid.Row="6" Grid.Column="3" Style="{StaticResource Button}" IsEnabled="False" Click="Start_Sniff_Click">Start Sniff</Button>
         <Button x:Name="Stop_Sniff" Grid.Row="6" Grid.Column="5"  Style="{StaticResource Button}" IsEnabled="False" Click="Stop_Sniff_Click">Stop Sniff</Button>
     </Grid>
