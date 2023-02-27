@@ -1,0 +1,58 @@
+﻿<Page x:Class="WyldTerm_PC.Flash"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WyldTerm_PC"
+        mc:Ignorable="d"
+        Title="Flash Pico" Width="400" Height="180" Loaded="Page_Loaded">
+    <Grid x:Name="Grid_Beacon" Width="400" Height="180" Background="LightGray"  HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="80*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="100*"/>
+
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+        </Grid.RowDefinitions>
+
+        <Button Name="Check_Pico" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" IsEnabled="False" Content="Check for Pico update" Click="Check_Pico_Click" Style="{StaticResource Button}"/>
+        <Button Name="Help_Check_Pico" Grid.Column="4" Grid.Row="1" Style="{StaticResource Help_Button}" Click="Help_Check_Pico_Click"/>
+        <TextBlock Grid.Column="6" Grid.Row="1" Style="{StaticResource Subheading}">Currently unavailable</TextBlock>
+        
+        <Button Name="Update_Pico_Btn" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" IsEnabled="False" Content="Update Pico" Click="Update_Pico_Click" Style="{StaticResource Button}"/>
+        <Button Name="Help_Update" Grid.Column="4" Grid.Row="2" Style="{StaticResource Help_Button}" Click="Help_Update_Click"/>
+
+        
+        <Button Name="Check_Modem"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" IsEnabled="False"  Content="Check for Modem update" Click="Check_Modem_Click"  Style="{StaticResource Button}"/>
+        <Button Name="Help_Check_Modem" Grid.Column="4" Grid.Row="4" Style="{StaticResource Help_Button}" Click="Help_Check_Modem_Click"/>
+        <TextBlock Grid.Column="6" Grid.Row="4" Style="{StaticResource Subheading}">Currently unavailable</TextBlock>
+        
+        <Button Name="Update_Modem_Btn"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsEnabled="False" Content="Update Modem" Click="Update_Modem_Click"  Style="{StaticResource Button}"/>
+        <Button Name="Help_Update_Modem" Grid.Column="4" Grid.Row="5" Style="{StaticResource Help_Button}" Click="Help_Update_Modem_Click"/>
+        <TextBlock Grid.Column="6" Grid.Row="5" Style="{StaticResource Subheading}">Currently unavailable</TextBlock>
+
+        
+        <Button Name="Check_App"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" IsEnabled="False" Content="Check for App update" Click="Check_App_Click"  Style="{StaticResource Button}"/>
+        <Button Name="Help_Check_App" Grid.Column="4" Grid.Row="7" Style="{StaticResource Help_Button}" Click="Help_Check_App_Click"/>
+        <TextBlock Grid.Column="6" Grid.Row="7" Style="{StaticResource Subheading}">Currently unavailable</TextBlock>
+        
+        <Button Name="Update_App_Btn"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" IsEnabled="False" Content="Update App" Click="Update_App_Click"  Style="{StaticResource Button}"/>
+        <Button Name="Help_Update_App" Grid.Column="4" Grid.Row="8" Style="{StaticResource Help_Button}" Click="Help_Update_App_Click"/>
+        <TextBlock Grid.Column="6" Grid.Row="8" Style="{StaticResource Subheading}">Currently unavailable</TextBlock>
+    </Grid>
+</Page>

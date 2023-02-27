@@ -1,0 +1,62 @@
+﻿<Window x:Class="WyldTerm_PC.Tutorial"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WyldTerm_PC"
+        mc:Ignorable="d"
+        Title="Tutorials" Height="700" Width="600" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="200*"/>
+            <ColumnDefinition Width="100*"/>
+
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="30*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="20*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="50*"/>
+            <RowDefinition Height="25*"/>
+            <RowDefinition Height="50*"/>
+
+        </Grid.RowDefinitions>
+        <Viewbox Grid.Column="3" Grid.Row="1" Grid.RowSpan="3" Grid.ColumnSpan="2" Panel.ZIndex="1">
+            <TextBlock Text="Pico Terminal" Style="{StaticResource Title}"/>
+        </Viewbox>
+        <TextBlock Grid.Row="2" Grid.Column="6" Text="Tutorials" Style="{StaticResource Small_Title}" Panel.ZIndex="1"/>
+        <Rectangle Grid.ColumnSpan="9" Stroke="Black" Fill="White" Grid.Row="0" Grid.RowSpan="5" Panel.ZIndex="0"/>
+        <Viewbox Grid.Row="0" Grid.Column="0" Grid.RowSpan="5" Grid.ColumnSpan="3" Margin="5,5,5,5">
+            <Image x:Name="logo" Source="/Images/wyld_logo.png" Height="450" Width="716"/>
+        </Viewbox>
+        <Rectangle Stroke="Black" Grid.Column="0" Grid.ColumnSpan="9" Grid.Row="17"  Grid.RowSpan="3" Fill="#303030"/>
+        <Viewbox Grid.Row="19" Grid.Column="1" Grid.ColumnSpan="3">
+            <TextBlock Text="©2022 Wyld Networks Ltd. Version xx.xx" Foreground="#cb129c" FontFamily="Monsterrat"/>
+        </Viewbox>
+        <Button x:Name="Com_Port" Grid.Row="6" Grid.Column="1" Style="{StaticResource Button}" Click="Com_Port_Click">Finding the COM port</Button>
+
+        <StackPanel Grid.Row="4" Grid.Column="3" Grid.RowSpan="12" Grid.ColumnSpan="4">
+            <Frame x:Name="Tutorial_Frame" x:FieldModifier="public" NavigationUIVisibility="Hidden" BorderThickness="2" Height="358"/>
+        </StackPanel>
+    </Grid>
+</Window>

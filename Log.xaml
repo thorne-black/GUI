@@ -1,0 +1,44 @@
+﻿<Page x:Class="WyldTerm_PC.Log"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WyldTerm_PC"
+        mc:Ignorable="d"
+        Title="Log Data" Width="400" Height="180" Loaded="Page_Loaded">
+    <Grid x:Name="Grid_Beacon" Width="400" Height="180" Background="LightGray"  HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="70*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+        </Grid.RowDefinitions>
+        <Button Name="View_Beacons" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="0" IsEnabled="False" Content="View Beacon Data" Click="View_Beacons_Click" Style="{StaticResource Button}"/>
+        <Button Name="Log_Data" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="1" IsEnabled="False" Content="Log Beacon Data" Click="Log_Data_Click" Style="{StaticResource Button}"/>
+        <Button Name="Erase_Data" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="2" IsEnabled="False"  Content="Erase Data (Pico)" Click="Erase_Data_Click" Style="{StaticResource Button}"/>
+
+        <Button Name="Log_Session" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="4" IsEnabled="False"  Content="Log Pico Session" Click="Log_Session_Click" Style="{StaticResource Button}"/>
+        <Button Name="Clear_Session" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="5" IsEnabled="False"  Content="Clear Pico Session" Click="Clear_Session_Click" Style="{StaticResource Button}"/>
+        
+        <Button Name="View_Data"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="7" Content="View Latest File Data" Click="View_Data_Click" Style="{StaticResource Button}"/>
+        <Button Name="Erase_File"  Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="8" Content="Erase Data (File)" Click="Erase_File_Click" Style="{StaticResource Button}"/>
+        <RichTextBox Grid.Column="4" Grid.ColumnSpan="5"  Grid.RowSpan="10" BorderThickness="2" x:Name="Save_Text_Box" IsReadOnly="True" VerticalScrollBarVisibility="Visible" Style="{StaticResource RichTextBox}"/>
+    </Grid>
+</Page>

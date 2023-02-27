@@ -1,0 +1,128 @@
+﻿<Page x:Class="WyldTerm_PC.Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WyldTerm_PC"
+        mc:Ignorable="d"
+        Title="Log Data" Width="400" Height="180" Loaded="Page_Loaded">
+    <TabControl Grid.ColumnSpan="8" Grid.RowSpan="9" Grid.Row="0" Grid.Column="1">
+        <TabItem Header="Page 1" Style="{StaticResource Tab_Header}">
+            <StackPanel Orientation="Horizontal" Background="LightGray">
+                <Grid x:Name="Grid_P1" Width="390" Height="155" Background="LightGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="90*" />
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="4*"/>
+                        <ColumnDefinition Width="65*" />
+                        <ColumnDefinition Width="75*" />
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="50*"/>
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="1"  Grid.Column="1" TextAlignment="Left" Text="Set default connection: " Grid.ColumnSpan="5" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Com_Defaults" Grid.Row="1" Grid.Column="3" Click="Com_Defaults_Click" Style="{StaticResource Help_Button}"/>
+                    <ComboBox Grid.Column="5" Grid.Row="1" Name="Com_Port_New" Style="{StaticResource Dropdown}" ItemsSource="{Binding MyDataSource}"/>
+                    <ComboBox Grid.Column="6" Grid.Row="1" Name="Baud_Rates_New" Style="{StaticResource Dropdown}" ItemsSource="{Binding MyDataSource}"/>
+                    <Button x:Name="Com_Save" Grid.Column="8" Grid.Row="1" Click="Com_Save_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Left" Text="Set beacon data filename: " Grid.ColumnSpan="5" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Data_Filename_Default" Grid.Row="2" Grid.Column="3" Click="Data_Filename_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="2" Grid.ColumnSpan="2" x:Name="beacon_filename" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Data_Filename_Btn" Grid.Column="8" Grid.Row="2" Click="Data_Filename_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="1" TextAlignment="Left" Text="Set beacon data folder: " Grid.ColumnSpan="5" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Data_Dest_Default" Grid.Row="3" Grid.Column="3" Click="Data_Dest_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="3" Grid.ColumnSpan="2" x:Name="save_beacon_folder" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Data_Dest_Btn" Grid.Column="8" Grid.Row="3" Click="Data_Dest_Btn_Click"  Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="1" TextAlignment="Left" Text="Set Modem firmware filename: " Grid.ColumnSpan="2" TextWrapping="Wrap" Grid.RowSpan="2" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Firmware_Filename_Default" Grid.Row="4" Grid.Column="3" Click="Firmware_Filename_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="4" x:Name="modem_firmware_filename" Grid.ColumnSpan="2" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Firmware_Filename_Btn" Grid.Column="8" Grid.Row="4" Click="Firmware_Filename_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="6" Grid.Column="1" TextAlignment="Left" Text="Set Modem firmware folder: " Grid.ColumnSpan="3" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Firmware_Dest_Default" Grid.Row="6" Grid.Column="3" Click="Firmware_Dest_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="6" x:Name="modem_firmware_folder" Grid.ColumnSpan="2" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Firmware_Dest_Btn" Grid.Column="8" Grid.Row="6" Click="Firmware_Dest_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="7" Grid.Column="1" TextAlignment="Left" Text="Set personal uplink ID: " Grid.ColumnSpan="5" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="ID_Default" Grid.Row="7" Grid.Column="3" Click="ID_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="7" x:Name="save_uplinkid" Style="{StaticResource TextBox}"/>
+                    <TextBlock Grid.Column="6" Grid.Row="7" HorizontalAlignment="Right" VerticalAlignment="Center"><Hyperlink NavigateUri="https://wiki.wyldnetworks.co.uk/wiki/Setup_Beacon_Sniffer#Uplink_IDs" RequestNavigate="Hyperlink_RequestNavigate" Style="{StaticResource Hyperlink}">Reserved IDs</Hyperlink></TextBlock>
+                    <Button x:Name="ID_Btn" Grid.Column="8" Grid.Row="7" Click="ID_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                </Grid>
+            </StackPanel>
+        </TabItem>
+        <TabItem Header="Page 2" Style="{StaticResource Tab_Header}" >
+            <StackPanel Orientation="Horizontal" Background="LightGray">
+                <Grid x:Name="Grid_P2" Width="390" Height="154" Background="LightGray">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="2*"/>
+                        <ColumnDefinition Width="90*" />
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="15*"/>
+                        <ColumnDefinition Width="5
+                                          *"/>
+                        <ColumnDefinition Width="65*" />
+                        <ColumnDefinition Width="75*" />
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="50*" />
+                        <ColumnDefinition Width="10" />
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="5*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*" />
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="5*" />
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="1" Grid.Column="1" TextAlignment="Left" Text="Set Pico firmware filename: " Grid.ColumnSpan="5" Margin="0,0,3,18" Grid.RowSpan="2" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Pico_Filename_Default" Grid.Row="1" Grid.Column="3" Click="Pico_Filename_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="1" x:Name="pico_firmware_filename" Grid.ColumnSpan="2" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Pico_Filename_Btn" Grid.Column="8" Grid.Row="1" Click="Pico_Filename_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="1" TextAlignment="Left" Grid.ColumnSpan="2" Text="Set Pico firmware folder: " Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Pico_Dest_Default" Grid.Row="2" Grid.Column="3" Click="Pico_Dest_Default_Click" Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="2" x:Name="pico_firmware_folder" Grid.ColumnSpan="2" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Pico_Dest_Btn" Grid.Column="8" Grid.Row="2" Click="Pico_Dest_Btn_Click" Style="{StaticResource Save_Button}"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" TextAlignment="Left" TextWrapping="Wrap" Text="Auto download latest Pico
+                               software:" Style="{StaticResource Subheading}"/>
+                    <RadioButton GroupName="App_Radio" Name="App_True" HorizontalAlignment="Left"  Grid.Row="3" Grid.Column="5" IsChecked="{Binding app_bool}" Click="App_Permission_True" Style="{StaticResource Radio}">True</RadioButton>
+                    <RadioButton GroupName="App_Radio" Name="App_False"  HorizontalAlignment="Left" Grid.Row="3" Grid.Column="6" IsChecked="{Binding app_bool_invert}" Click="App_Permission_False" Style="{StaticResource Radio}">False</RadioButton>
+
+                    <TextBlock Grid.Row="5"  Grid.Column="1" Grid.ColumnSpan="2" Grid.RowSpan="2" TextAlignment="Left"  TextWrapping="Wrap" Text="Auto download latest modem firmware:" Style="{StaticResource Subheading}"/>
+                    <RadioButton GroupName="Firmware_Radio" Name="Firmware_True" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="5" IsChecked="{Binding firmware_bool}" Click="Firmware_Permission_True" Style="{StaticResource Radio}">True</RadioButton>
+                    <RadioButton GroupName="Firmware_Radio" Name="Firmware_False" HorizontalAlignment="Left" Grid.Row="5" Grid.Column="6" IsChecked="{Binding firmware_bool_invert}" Click="Firmware_Permission_False" Style="{StaticResource Radio}">False</RadioButton>
+
+                    <TextBlock Grid.Row="7" Grid.Column="1" TextAlignment="Left" Text="Set Compiler Location: " Grid.ColumnSpan="2" Style="{StaticResource Subheading}"/>
+                    <Button x:Name="Compiler_Default" Grid.Row="7" Grid.Column="3" Click="Compiler_Default_Click"  Style="{StaticResource Help_Button}"/>
+                    <TextBox Grid.Column="5" Grid.Row="7" x:Name="compiler_path" Grid.ColumnSpan="2" Style="{StaticResource TextBox}"/>
+                    <Button x:Name="Compiler_Btn" Grid.Column="8" Grid.Row="7" Click="Compiler_Btn_Click" Style="{StaticResource Save_Button}"/>
+                </Grid>
+            </StackPanel>
+        </TabItem>
+    </TabControl>
+</Page>
