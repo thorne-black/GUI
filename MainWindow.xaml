@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WyldTerm_PC"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         mc:Ignorable="d"
         Title="Wyld Terminal PC Edition" Height="700" Width="600" Loaded="Window_Loaded">
     <Grid Background="#f4f4f4">
@@ -68,7 +69,7 @@
                             <ColumnDefinition Width="10*"/>
                             <ColumnDefinition Width="100*"/>
                             <ColumnDefinition Width="10*"/>
-                            <ColumnDefinition Width="12*"/>
+                            <ColumnDefinition Width="20*"/>
                             <ColumnDefinition Width="10*"/>
 
                         </Grid.ColumnDefinitions>
@@ -117,11 +118,6 @@
             <TabItem Header="Add Configs" Style="{StaticResource Tab_Header}">
                 <StackPanel Orientation="Horizontal" Background="LightGray">
                     <Frame x:Name="Add_Configs" x:FieldModifier="public" NavigationUIVisibility="Hidden" Grid.ColumnSpan="5" Grid.Row="7" Grid.Column="3" Grid.RowSpan="7" Source="Configs.xaml" BorderThickness="2"/>
-                </StackPanel>
-            </TabItem>
-            <TabItem Header="View Configs" Style="{StaticResource Tab_Header}">
-                <StackPanel Orientation="Horizontal" Background="LightGray">
-                    <Frame x:Name="View_Configs" x:FieldModifier="public" NavigationUIVisibility="Hidden" Grid.ColumnSpan="5" Grid.Row="7" Grid.Column="3" Grid.RowSpan="7" Source="View_Configs.xaml" BorderThickness="2"/>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Start Sniff" Style="{StaticResource Tab_Header}">

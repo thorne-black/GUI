@@ -52,7 +52,7 @@ namespace WyldTerm_PC
         private void ID_Default_Click(object sender, RoutedEventArgs e)
         {
             string uplink_ID = Retrieve_Setting("Uplink_ID");
-            Update_Help($"This is your unique ID for when you uplink during beacon sniffing.\nClick the \"Eeserved IDs\" link to see which IDs are already in use.\nThe current default ID is: \"{uplink_ID}\"");
+            Update_Help($"This is your unique ID for when you uplink during beacon sniffing.\nClick the \"Reserved IDs\" link to see which IDs are already in use.\nThe current default ID is: \"{uplink_ID}\"");
         }
 
         private void Firmware_Filename_Default_Click(object sender, RoutedEventArgs e)

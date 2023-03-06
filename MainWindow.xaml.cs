@@ -134,9 +134,14 @@ namespace WyldTerm_PC
 
         public void Disconnect_Port()
         {
-            if (serial.IsOpen)
+            try
             {
-                 serial.Close();
+                serial.Close();//system.io.io.exception device not functioning
+            }
+            catch (Exception ex)
+            {
+                Warning_Status(ex.GetType().Name);
+                return;
             }
 
             Disconnect.IsEnabled = false;
@@ -155,7 +160,14 @@ namespace WyldTerm_PC
                 {
                     return;
                 }
-                serial.PortName = portStr;
+                try
+                {
+                    serial.PortName = portStr;
+                }
+                catch (Exception ex)
+                {
+                    Warning_Status(ex.ToString());
+                }
                 serial.BaudRate = Convert.ToInt32(baudStr);
                 serial.Handshake = System.IO.Ports.Handshake.None;
                 serial.Parity = Parity.None;
@@ -227,6 +239,8 @@ namespace WyldTerm_PC
 
             this.Dispatcher.Invoke(() =>
             {
+            try
+            {
                 results += serial.ReadExisting();
                 FlowDocument document = new FlowDocument();
                 Paragraph paragraph = new Paragraph();
@@ -239,6 +253,10 @@ namespace WyldTerm_PC
                 if (Search_For_String("Going to sleep!"))
                 {
                     Warning_Status("Device sleeping, waking up!");
+                }
+            }
+            catch (Exception ex) {
+                Warning_Status(ex.ToString());
                 }
             });
         }

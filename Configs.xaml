@@ -34,7 +34,7 @@
         <TabControl Grid.ColumnSpan="8" Grid.RowSpan="9" Grid.Row="0" Grid.Column="1">
             <TabItem Header="Sniff and Uplink" Style="{StaticResource Tab_Header}">
                 <StackPanel Orientation="Horizontal" Background="LightGray">
-                    <Grid Width="377">
+                    <Grid Width="390">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="75*"/>
@@ -43,9 +43,9 @@
                             <ColumnDefinition Width="9*"/>
                             <ColumnDefinition Width="39*"/>
                             <ColumnDefinition Width="36*"/>
-                            <ColumnDefinition Width="9*"/>
-                            <ColumnDefinition Width="47*"/>
-                            <ColumnDefinition Width="47*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="10*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20*"/>
@@ -56,7 +56,8 @@
                             <RowDefinition Height="20*"/>
                             <RowDefinition Height="20*"/>
                             <RowDefinition Height="20*"/>
-                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="5*"/>
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="Config_Name_Up" Grid.Column="1" Grid.Row="0" Style="{StaticResource Subheading}" Margin="0,0,0,16" Grid.RowSpan="2">Name:</TextBlock>
                         <TextBox x:Name="config_name_Up" Grid.Row="0" Grid.ColumnSpan="4" Style="{StaticResource TextBox}" Margin="75,0,9,16" Grid.RowSpan="2" Grid.Column="1"/>
@@ -86,8 +87,8 @@
 
                         <TextBlock x:Name="Uplink" Grid.Column="1" Grid.Row="6" Style="{StaticResource Subheading}" Margin="0,0,0,1">Uplink ID:</TextBlock>
                         <RichTextBox x:Name="UplinkID" Grid.Row="6" Grid.ColumnSpan="4" IsReadOnly="True" TextChanged="UplinkID_TextChanged" Style="{StaticResource RichTextBox}" Margin="75,0,9,1" Grid.Column="1"/>
-                        <TextBlock Grid.Column="5" Grid.Row="6" Grid.ColumnSpan="5" Style="{StaticResource Subheading}" Margin="0,0,47,1">(Set in "App Settings")</TextBlock>
-
+                        <TextBlock Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="4" Style="{StaticResource Subheading}" Margin="0,16,47,17" Grid.RowSpan="3">See "App Settings"</TextBlock>                    
+    
                         <TextBlock x:Name="SF_Up" Grid.Column="1" Grid.Row="6" Style="{StaticResource Subheading}" Margin="0,16,0,21" Grid.RowSpan="3">SF:</TextBlock>
                         <RadioButton GroupName="SF_Up" x:Name="SF_7_Up" Grid.Row="6" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,16,56,21" Grid.RowSpan="3" Grid.Column="1">SF7</RadioButton>
                         <RadioButton GroupName="SF_Up" x:Name="SF_10_Up" Grid.Column="2" Grid.Row="6" Style="{StaticResource Radio}" Margin="57,16,9,21" Grid.RowSpan="3" Grid.ColumnSpan="3">SF10</RadioButton>
@@ -96,13 +97,15 @@
                         <RadioButton GroupName="Default_Up" x:Name="Default_True_Up" Grid.Row="8" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,0,56,0" Grid.Column="1">True</RadioButton>
                         <RadioButton GroupName="Default_Up" x:Name="Default_False_Up" Grid.Column="2" Grid.Row="8" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="57,0,9,0">False</RadioButton>
 
-                        <Button x:Name="Save_Config_Uplink" Grid.Column="8" Grid.Row="8" Grid.ColumnSpan="2" Style="{StaticResource Button}" Click="Save_Config_Uplink_Click" IsEnabled="False">Save Config</Button>
+                        <Button Name="Display_All_Btn_Uplink" IsEnabled="False" Content="View All Configs" Grid.Row="6" Click="Display_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button Name="Erase_All_Btn_Uplink" IsEnabled="False" Content="Erase All Configs" Grid.Row="7" Click="Erase_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button x:Name="Save_Config_Uplink" Grid.Column="8" Grid.Row="8" Style="{StaticResource Button}" Click="Save_Config_Uplink_Click" IsEnabled="False">Save Config</Button>
                     </Grid>
                 </StackPanel>
             </TabItem>
             <TabItem Header="Sniff Only" Style="{StaticResource Tab_Header}">
                 <StackPanel Orientation="Horizontal" Background="LightGray">
-                    <Grid Width="377">
+                    <Grid Width="392">
                         <Grid.ColumnDefinitions>
                             <ColumnDefinition Width="2*"/>
                             <ColumnDefinition Width="75.4"/>
@@ -112,8 +115,8 @@
                             <ColumnDefinition Width="39*"/>
                             <ColumnDefinition Width="35*"/>
                             <ColumnDefinition Width="9*"/>
-                            <ColumnDefinition Width="49*"/>
-                            <ColumnDefinition Width="49*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="10*"/>
                         </Grid.ColumnDefinitions>
                         <Grid.RowDefinitions>
                             <RowDefinition Height="20*"/>
@@ -124,7 +127,8 @@
                             <RowDefinition Height="20*"/>
                             <RowDefinition Height="20*"/>
                             <RowDefinition Height="20*"/>
-                            <RowDefinition Height="25*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="5*"/>
                         </Grid.RowDefinitions>
                         <TextBlock x:Name="Config_Name_S" Grid.Column="1" Grid.Row="0" Style="{StaticResource Subheading}" Margin="0,0,0,17" Grid.RowSpan="2">Name:</TextBlock>
                         <TextBox x:Name="config_name_S" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TextBox}" Margin="75,0,0,17" Grid.RowSpan="2" Grid.Column="1"/>
@@ -151,8 +155,9 @@
                         <TextBlock x:Name="Default_S" Grid.Column="1" Grid.Row="4" Style="{StaticResource Subheading}" Margin="0,17,0,16" Grid.RowSpan="3">Make default:</TextBlock>
                         <RadioButton GroupName="Default_S" x:Name="Default_True_S" Grid.Row="4" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="75,17,0,16" Grid.RowSpan="3" Grid.Column="1">True</RadioButton>
                         <RadioButton GroupName="Default_S" x:Name="Default_False_S" Grid.Column="2" Grid.Row="4" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="56,17,0,16" Grid.RowSpan="3">False</RadioButton>
-
-                        <Button x:Name="Save_Config_Sniff" Grid.Column="7" Grid.Row="8" Grid.ColumnSpan="3" Style="{StaticResource Button}" Click="Save_Config_Sniff_Click" Margin="9,0,0,0" IsEnabled="False">Save Config</Button>
+                        <Button Name="Display_All_Btn_Sniff" IsEnabled="False" Content="View All Configs" Grid.Row="6" Click="Display_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button Name="Erase_All_Btn_Sniff" IsEnabled="False" Content="Erase All Configs" Grid.Row="7" Click="Erase_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button x:Name="Save_Config_Sniff" Grid.Column="8" Grid.Row="8"  Style="{StaticResource Button}" Click="Save_Config_Sniff_Click" IsEnabled="False">Save Config</Button>
                     </Grid>
                 </StackPanel>
             </TabItem>

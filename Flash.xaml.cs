@@ -95,7 +95,14 @@ namespace WyldTerm_PC
             Update_Status("Copying");
             string fileLocation = System.IO.Path.Combine(Retrieve_Setting("Pico_Firmware_Folder"), Retrieve_Setting("Pico_Firmware_Filename"));
             string dest_file = System.IO.Path.Combine(picoFolder, Retrieve_Setting("Pico_Firmware_Filename"));
-            System.IO.File.Copy(fileLocation, dest_file, true);
+            try
+            {
+                System.IO.File.Copy(fileLocation, dest_file, true);
+            }
+            catch(Exception ex)
+            {
+                Update_Status(ex.ToString());
+            }
             await Delay_Task(2000);
             for (int loop_check = 0; loop_check != 5; loop_check++)
             {
@@ -122,7 +129,15 @@ namespace WyldTerm_PC
             Update_Status("Copying");
             string fileLocation = System.IO.Path.Combine(Retrieve_Setting("Pico_Firmware_Folder"), Retrieve_Setting("Pico_Firmware_Filename"));
             string dest_file = System.IO.Path.Combine(picoFolder, Retrieve_Setting("Pico_Firmware_Filename"));
-            System.IO.File.Copy(fileLocation, dest_file, true);
+            try
+            {
+                System.IO.File.Copy(fileLocation, dest_file, true);//error handling!! device does not exist
+            }
+            catch (Exception ex)
+            {
+                MainWindow win = (MainWindow)Window.GetWindow(this);
+                win.Warning_Status(ex.GetType().Name) ;
+            }
             await Delay_Task(2000);
             for (int loop_check = 0; loop_check != 5; loop_check++)
             {
@@ -281,34 +296,34 @@ namespace WyldTerm_PC
 
         private void Help_Check_Pico_Click(object sender, RoutedEventArgs e)
         {
-            Update_Help("Check for more recent versions of the Pico program. Not yet available.");
+            Update_Help("Check for more recent versions of the Pico program.\nThis will take place automatically if permission is given in the \"App Settings\" tab.\nNot yet available!");
         }
 
         private void Help_Update_Click(object sender, RoutedEventArgs e)
         {
             string fileLocation = System.IO.Path.Combine(Retrieve_Setting("Pico_Firmware_Folder"), Retrieve_Setting("Pico_Firmware_Filename"));
-            Update_Help($"Auto add the latest Pico program to the Pico, located at: {fileLocation}.\nThe filename and folder can be changed in the \"App Settings\" tab.\nThis will take place automatically if permission is given in the \"App Settings\" tab.");
+            Update_Help($"Auto add the latest Pico program to the Pico, located at: {fileLocation}.\nThe filename and folder can be changed in the \"App Settings\" tab.\n");
         }
 
         private void Help_Check_Modem_Click(object sender, RoutedEventArgs e)
         {
-            Update_Help("Check for more recent versions of the Modem firmware. Not yet available.");
+            Update_Help("Check for more recent versions of the Modem firmware.\nThis will take place automatically if permission is given in the \"App Settings\" tab.\nNot yet available!");
         }
 
         private void Help_Update_Modem_Click(object sender, RoutedEventArgs e)
         {
             string fileLocation = System.IO.Path.Combine(Retrieve_Setting("Modem_Firmware_Folder"), Retrieve_Setting("Modem_Firmware_Filename"));
-            Update_Help($"Development in progress, currently unavailable.\nAuto add the latest Pico program to the Pico, located at: {fileLocation}.\nThe filename and folder can be changed in the \"App Settings\" tab.\nThis will take place automatically if permission is given in the \"App Settings\" tab.");
+            Update_Help($"Development in progress, currently unavailable.\nAuto add the latest Pico program to the Pico, located at: {fileLocation}.\nThe filename and folder can be changed in the \"App Settings\" tab.\nThis will take place automatically if permission is given in the \"App Settings\" tab.\nNot yet available!");
         }
 
         private void Help_Check_App_Click(object sender, RoutedEventArgs e)
         {
-            Update_Help("Check for more recent versions of the Modem firmware. Not yet available.");
+            Update_Help("Check for more recent versions of the Modem firmware.\nNot yet available!");
         }
 
         private void Help_Update_App_Click(object sender, RoutedEventArgs e)
         {
-            Update_Help($"Auto update this app. Not yet available.");
+            Update_Help($"Update this app.\nNot yet available!");
         
         }
 

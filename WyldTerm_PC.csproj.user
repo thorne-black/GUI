@@ -30,9 +30,6 @@
     <Compile Update="Tutorial.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="View_Configs.xaml.cs">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Page Update="Configs.xaml">
@@ -60,9 +57,6 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Sniff.xaml">
-      <SubType>Designer</SubType>
-    </Page>
-    <Page Update="View_Configs.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

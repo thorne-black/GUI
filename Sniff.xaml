@@ -3,53 +3,109 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WyldTerm_PC"
-        mc:Ignorable="d"
+      mc:Ignorable="d"
+      xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
         Title="Sniff" Width="398" Height="180" Loaded="Page_Loaded">
-    <Grid x:Name="Grid_Beacon" Width="400" Height="180" Background="LightGray"  HorizontalAlignment="Center">
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="90*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="10*"/>
-            <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="50*"/>
-            <ColumnDefinition Width="10*"/>
-        </Grid.ColumnDefinitions>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-            <RowDefinition Height="20*" />
-        </Grid.RowDefinitions>
-        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource Subheading}">Config Name:</TextBlock>
-        <TextBox x:Name="Config_Name"  Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBox}"></TextBox>
-        <TextBlock Grid.Row="1" Grid.Column="5" Style="{StaticResource Subheading}">(See "View Configs")</TextBlock>
-        
-        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource Subheading}">Duration:</TextBlock>
-        <TextBox x:Name="Duration" Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBox}" ></TextBox>
-        <TextBlock Grid.Row="2" Grid.Column="5" Style="{StaticResource Subheading}">(1 - 4320 mins)</TextBlock>
+    <TabControl Grid.ColumnSpan="8" Grid.RowSpan="9" Grid.Row="0" Grid.Column="1">
+        <TabItem Header="Start Sniff" Style="{StaticResource Tab_Header}">
+            <Grid x:Name="Grid_Sniff" Width="400" Height="155" Background="LightGray"  HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="90*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="130*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="130*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="20*"/>
+                    <ColumnDefinition Width="10*"/>
+                    <ColumnDefinition Width="10*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="20*" />
+                    <RowDefinition Height="10*" />
+                </Grid.RowDefinitions>
+                <TextBlock x:Name="Name_Instruct" Grid.Row="1" Grid.Column="1" Style="{StaticResource Subheading}">Config Name:</TextBlock>
+                <TextBox x:Name="Config_Name" Grid.Row="1" Grid.Column="3" Style="{StaticResource TextBox}"></TextBox>
+                <Button x:Name="Config_Name_Help" Grid.Row="1" Grid.Column="7" Click="Config_Name_Help_Click" Style="{StaticResource Help_Button}"/>
 
-        <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource Subheading}" Margin="0,0,0,2">Delay:</TextBlock>
-        <TextBox x:Name="Delay"  Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBox}" Margin="0,0,0,2"></TextBox>
-        <TextBlock Grid.Row="3" Grid.Column="5" Style="{StaticResource Subheading}" Margin="0,0,0,2">(0 - 4320 mins)</TextBlock>
-        
-        <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Type: </TextBlock>
-        <RadioButton x:Name="Type_S" GroupName="Type" Grid.Row="4" Grid.Column="3" Style="{StaticResource Radio}">Sniff Only</RadioButton>
-        <RadioButton x:Name="Type_U" GroupName="Type" Grid.Row="4" Grid.Column="5" Style="{StaticResource Radio}">Uplink</RadioButton>
-
-        <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Method:</TextBlock>
-        <RadioButton x:Name="Method_C" GroupName="Method" Grid.Row="5" Grid.Column="3" Style="{StaticResource Radio}">Sniff Continuously</RadioButton>
-        <RadioButton x:Name="Method_S" GroupName="Method" Grid.Row="5" Grid.Column="5" Style="{StaticResource Radio}">Sleep Until Beacon</RadioButton>
+                <TextBlock x:Name="Duration_Instruct" Grid.Row="2" Grid.Column="1" Style="{StaticResource Subheading}">Duration:</TextBlock>
+                <TextBox x:Name="Duration" Grid.Row="2" Grid.Column="3" Style="{StaticResource TextBox}" ></TextBox>
+                <Button x:Name="Duration_Change_Help" Grid.Row="2" Grid.Column="7" Click="Duration_Change_Help_Click" Style="{StaticResource Help_Button}"/>
 
 
-        <Button x:Name="Start_Sniff" Grid.Row="6" Grid.Column="3" Style="{StaticResource Button}" IsEnabled="False" Click="Start_Sniff_Click">Start Sniff</Button>
-        <Button x:Name="Stop_Sniff" Grid.Row="6" Grid.Column="5"  Style="{StaticResource Button}" IsEnabled="False" Click="Stop_Sniff_Click">Stop Sniff</Button>
-    </Grid>
+                <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource Subheading}" Margin="0,0,0,2">Delay:</TextBlock>
+                <TextBox x:Name="Delay"  Grid.Row="3" Grid.Column="3" Style="{StaticResource TextBox}" Margin="0,0,0,2"></TextBox>
+                <Button x:Name="Delay_Change_Help" Grid.Row="3" Grid.Column="7" Click="Delay_Change_Help_Click" Style="{StaticResource Help_Button}"/>
+
+                <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Type:</TextBlock>
+                <RadioButton x:Name="Type_S" GroupName="Type" Grid.Row="4" Grid.Column="3" Style="{StaticResource Radio}">Sniff Only</RadioButton>
+                <RadioButton x:Name="Type_U" GroupName="Type" Grid.Row="4" Grid.Column="5" Style="{StaticResource Radio}">Uplink</RadioButton>
+
+                <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource Subheading}">Sniff Mode:</TextBlock>
+                <RadioButton x:Name="Mode_C" GroupName="Mode" Grid.Row="5" Grid.Column="3" Style="{StaticResource Radio}">Continuous</RadioButton>
+                <RadioButton x:Name="Mode_I" GroupName="Mode" Grid.Row="5" Grid.Column="5" Style="{StaticResource Radio}">Intermittent</RadioButton>
+                <Button x:Name="Mode_Help" Grid.Row="5" Grid.Column="7" Style="{StaticResource Help_Button}" Click="Mode_Help_Click"></Button>
+
+                <Button x:Name="Start_Sniff" Grid.Row="6" Grid.Column="3" Style="{StaticResource Button}" IsEnabled="False" Click="Start_Sniff_Click">Start Sniff</Button>
+                <Button x:Name="Stop_Sniff" Grid.Row="6" Grid.Column="5"  Style="{StaticResource Button}" IsEnabled="False" Click="Stop_Sniff_Click">Stop Sniff</Button>
+                <Button x:Name="Start_Stop_Help" Grid.Row="6" Grid.Column="7" Style="{StaticResource Help_Button}" Click="Start_Stop_Help_Click"></Button>
+            </Grid>
+        </TabItem>
+        <TabItem Header="Sniff Settings" Style="{StaticResource Tab_Header}">
+            <Grid x:Name="Grid_Sniff_settings" Width="400" Height="156" Background="LightGray"  HorizontalAlignment="Center">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition Width="4*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="7*"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition />
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="5"/>
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                    <RowDefinition Height="2*" />
+                </Grid.RowDefinitions>
+                <ComboBox x:Name="Config_Types" Grid.Column="1" Grid.Row="3" Style="{StaticResource Dropdown}" ItemsSource="{Binding MyDataSource}"/>
+
+                <Button x:Name="All_Configs" IsEnabled="False" Content="Display All Configs" Grid.Row="1" Grid.Column="5" Click="All_Configs_Click" Style="{StaticResource Button}"/>
+                <Button Name="Display_Default" IsEnabled="False" Content="Display Default Config" Grid.Row="3" Click="Display_Default_Click" Style="{StaticResource Button}" Grid.Column="5"/>
+                <Button x:Name="Default_Help"  Grid.Row="3" Grid.Column="7" Click="Default_Help_Click" Style="{StaticResource Help_Button}"/>
+                <TextBox x:Name="Default_Name" Grid.Row="4" Grid.ColumnSpan="2" Style="{StaticResource TextBox}" Grid.Column="1"/>
+
+                <Button Name="Change_Default" IsEnabled="False" Content="Change Default Config" Grid.Row="4" Grid.Column="5" Click="Change_Default_Click" Style="{StaticResource Button}"/>
+                <Button x:Name="Sniff_Change_Help" Grid.Row="4" Grid.Column="7" Click="Sniff_Change_Help_Click" Style="{StaticResource Help_Button}"/>
+
+                <TextBox x:Name="Default_Duration" Grid.Row="6" Grid.ColumnSpan="2" Style="{StaticResource TextBox}" Grid.Column="1"/>
+                <Button x:Name="Duration_Help" Grid.Row="9" Grid.Column="7" Click="Duration_Help_Click" Style="{StaticResource Help_Button}"/>
+
+                <Button Name="Change_Duration" IsEnabled="False" Content="Set Default Sniff Timer" Grid.Row="6" Grid.Column="5"  Click="Change_Duration_Click" Style="{StaticResource Button}"/>
+                <Button x:Name="Timer_Help" Grid.Row="6" Grid.Column="7" Click="Duration_Help_Click" Style="{StaticResource Help_Button}"/>
+                <Button Name="Set_RTC" IsEnabled="True" Content="Set RTC" Grid.Row="8" Grid.Column="5"  Click="Set_RTC_Click" Style="{StaticResource Button}"/>
+                <Button x:Name="RTC_Help" Grid.Row="8" Grid.Column="7" Click="RTC_Help_Click" Style="{StaticResource Help_Button}"/>
+
+                <xctk:DateTimePicker x:Name="Date_Time_Picker" Grid.Row="9" Grid.Column="1" Grid.ColumnSpan="3"></xctk:DateTimePicker>
+                <Button Name="Set_Alarm" IsEnabled="True" Content="Set Sniff Alarm" Grid.Row="9" Grid.Column="5"  Click="Set_Alarm_Click" Style="{StaticResource Button}"/>
+                <Button x:Name="Alarm_Help" Grid.Row="9" Grid.Column="7" Click="Alarm_Help_Click" Style="{StaticResource Help_Button}"/>
+            </Grid>
+        </TabItem>
+    </TabControl>
 </Page>

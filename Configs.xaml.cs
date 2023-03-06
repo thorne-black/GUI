@@ -60,6 +60,7 @@ namespace WyldTerm_PC
             
         {
             parameters.Clear();
+            parameters.Add("Uplink");
             if (config_name_Up.Text.Length == 0 || config_name_Up.Text.Length > 8)
             {
                 Config_Name_Up.Foreground = Brushes.Red;
@@ -146,6 +147,7 @@ namespace WyldTerm_PC
 
         {
             parameters.Clear();
+            parameters.Add("Sniff");
             if (config_name_S.Text.Length == 0 || config_name_S.Text.Length > 8)
             {
                 Config_Name_S.Foreground = Brushes.Red;
@@ -254,6 +256,16 @@ namespace WyldTerm_PC
             {
                 await Task.Delay(duration);
             });
+        }
+
+        private void Display_All_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Send_Command("All Configs");
+        }
+
+        private void Erase_All_Btn_Click(object sender, RoutedEventArgs e)
+        {
+            Send_Command("Erase Configs");
         }
     }
 }
