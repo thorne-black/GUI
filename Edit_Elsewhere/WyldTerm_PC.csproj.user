@@ -1,0 +1,63 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <_LastSelectedProfileId>C:\Users\katel\Documents\code\Test_Terminal\WyldTerm_PC\Properties\PublishProfiles\ClickOnceProfile1.pubxml</_LastSelectedProfileId>
+  </PropertyGroup>
+  <ItemGroup>
+    <ApplicationDefinition Update="App.xaml">
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Configs.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Find_Port.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Flash.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Log.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Settings.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Sniff.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Tutorial.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="Configs.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Find_Port.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Flash.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Log.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Tutorial.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Resource Update="Resources\Style.xaml">
+      <SubType>Designer</SubType>
+    </Resource>
+    <Page Update="Settings.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Sniff.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,44 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>wyld_logo_small.ico</ApplicationIcon>
+    <StartupObject>WyldTerm_PC.App</StartupObject>
+    <SignAssembly>False</SignAssembly>
+    <Company>Wyld Networks</Company>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\wyld_logo.png" />
+    <None Remove="Resources\All_Baudrates.xml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Remove="Resources\Style.xaml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="wyld_logo_small.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.5.0" />
+    <PackageReference Include="System.IO.Ports" Version="7.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\wyld_logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\All_Baudrates.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Resources\Style.xaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+</Project>

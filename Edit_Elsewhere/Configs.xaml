@@ -1,0 +1,168 @@
+﻿<Page x:Class="WyldTerm_PC.Configs"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WyldTerm_PC"
+        mc:Ignorable="d"
+        Title="Configs" Width="400" Height="180" Loaded="Page_Loaded">
+    <Grid x:Name="Grid_Configs" Width="412" Height="180" Background="LightGray"  HorizontalAlignment="Center">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="10*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+            <RowDefinition Height="20*" />
+        </Grid.RowDefinitions>
+
+        <TabControl Grid.ColumnSpan="8" Grid.RowSpan="9" Grid.Row="0" Grid.Column="1">
+            <TabItem Header="Sniff and Uplink" Style="{StaticResource Tab_Header}">
+                <StackPanel Orientation="Horizontal" Background="LightGray">
+                    <Grid Width="390">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="75*"/>
+                            <ColumnDefinition Width="57*"/>
+                            <ColumnDefinition Width="57*"/>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="39*"/>
+                            <ColumnDefinition Width="36*"/>
+                            <ColumnDefinition Width="40*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="Config_Name_Up" Grid.Column="1" Grid.Row="0" Style="{StaticResource Subheading}" Margin="0,0,0,16" Grid.RowSpan="2">Name:</TextBlock>
+                        <TextBox x:Name="config_name_Up" Grid.Row="0" Grid.ColumnSpan="4" Style="{StaticResource TextBox}" Margin="75,0,9,16" Grid.RowSpan="2" Grid.Column="1"/>
+                        <TextBlock Grid.Column="5" Grid.Row="0" Style="{StaticResource Subheading}" Grid.ColumnSpan="3" Margin="0,0,9,16" Grid.RowSpan="2">(1-8 chars)</TextBlock>
+
+                        <TextBlock x:Name="Uplink_Power" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subheading}">Uplink Power:</TextBlock>
+                        <TextBox x:Name="uplink_power" Grid.Row="1" Grid.ColumnSpan="4" Style="{StaticResource TextBox}" Margin="75,0,9,0" Grid.Column="1"/>
+                        <TextBlock Grid.Column="5" Grid.Row="1" Style="{StaticResource Subheading}" Grid.ColumnSpan="3" Margin="0,0,9,0">(0-22 dB)</TextBlock>
+
+                        <TextBlock x:Name="Frequency_Label" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subheading}" Margin="0,16,0,17" Grid.RowSpan="3">Frequency:</TextBlock>
+                        <TextBox x:Name="frequency" Grid.Row="1" Grid.ColumnSpan="4" Style="{StaticResource TextBox}" Margin="75,16,9,17" Grid.RowSpan="3" Grid.Column="1"/>
+                        <TextBlock Grid.Column="5" Grid.Row="1" Grid.ColumnSpan="5" Style="{StaticResource Subheading}" Margin="0,16,47,17" Grid.RowSpan="3">(Default 868.7 MHz)</TextBlock>
+
+                        <TextBlock x:Name ="Selant_Up" Grid.Column="1" Grid.Row="3" Style="{StaticResource Subheading}">Selant:</TextBlock>
+                        <RadioButton GroupName="Selant_Up" x:Name="Selant_sm_Up" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,0,56,0" Grid.Column="1">S M</RadioButton>
+                        <RadioButton GroupName="Selant_Up" x:Name="Selant_ms_Up" Grid.Column="2" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="57,0,9,0">M S</RadioButton>
+                        <RadioButton GroupName="Selant_Up" x:Name="Selant_ss_Up" Grid.Column="4" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="0,0,9,0">S S</RadioButton>
+                        <RadioButton GroupName="Selant_Up" x:Name="Selant_mm_Up" Grid.Column="6" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="0,0,9,0">M M</RadioButton>
+
+                        <TextBlock x:Name="Calimage_Up" Grid.Column="1" Grid.Row="3" Style="{StaticResource Subheading}" Margin="0,16,0,0" Grid.RowSpan="2">Calimage:</TextBlock>
+                        <RadioButton GroupName="Calimage_Up" x:Name="Cal_True_Up" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,16,56,0" Grid.RowSpan="2" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Calimage_Up" x:Name="Cal_False_Up" Grid.Column="2" Grid.Row="3" Style="{StaticResource Radio}" Margin="57,16,9,0" Grid.RowSpan="2" Grid.ColumnSpan="3">False</RadioButton>
+
+                        <TextBlock x:Name="Extlna_Up" Grid.Column="1" Grid.Row="4" Style="{StaticResource Subheading}" Margin="0,17,0,16" Grid.RowSpan="3">Extlna:</TextBlock>
+                        <RadioButton GroupName="Extlna_Up" x:Name="Ext_True_Up" Grid.Row="4" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,17,56,16" Grid.RowSpan="3" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Extlna_Up" x:Name="Ext_False_Up" Grid.Column="2" Grid.Row="4" Style="{StaticResource Radio}" Margin="57,17,9,16" Grid.RowSpan="3" Grid.ColumnSpan="3">False</RadioButton>
+
+                        <TextBlock x:Name="Uplink" Grid.Column="1" Grid.Row="6" Style="{StaticResource Subheading}" Margin="0,0,0,1">Uplink ID:</TextBlock>
+                        <RichTextBox x:Name="UplinkID" Grid.Row="6" Grid.ColumnSpan="4" IsReadOnly="True" TextChanged="UplinkID_TextChanged" Style="{StaticResource RichTextBox}" Margin="75,0,9,1" Grid.Column="1"/>
+                        <TextBlock Grid.Column="5" Grid.Row="5" Grid.ColumnSpan="4" Style="{StaticResource Subheading}" Margin="0,16,47,17" Grid.RowSpan="3">See "App Settings"</TextBlock>                    
+    
+                        <TextBlock x:Name="SF_Up" Grid.Column="1" Grid.Row="6" Style="{StaticResource Subheading}" Margin="0,16,0,21" Grid.RowSpan="3">SF:</TextBlock>
+                        <RadioButton GroupName="SF_Up" x:Name="SF_7_Up" Grid.Row="6" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,16,56,21" Grid.RowSpan="3" Grid.Column="1">SF7</RadioButton>
+                        <RadioButton GroupName="SF_Up" x:Name="SF_10_Up" Grid.Column="2" Grid.Row="6" Style="{StaticResource Radio}" Margin="57,16,9,21" Grid.RowSpan="3" Grid.ColumnSpan="3">SF10</RadioButton>
+
+                        <TextBlock x:Name="Default_Up" Grid.Column="1" Grid.Row="8" Style="{StaticResource Subheading}">Make default:</TextBlock>
+                        <RadioButton GroupName="Default_Up" x:Name="Default_True_Up" Grid.Row="8" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,0,56,0" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Default_Up" x:Name="Default_False_Up" Grid.Column="2" Grid.Row="8" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="57,0,9,0">False</RadioButton>
+
+                        <Button Name="Display_All_Btn_Uplink" IsEnabled="False" Content="View All Configs" Grid.Row="6" Click="Display_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button Name="Erase_All_Btn_Uplink" IsEnabled="False" Content="Erase All Configs" Grid.Row="7" Click="Erase_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button x:Name="Save_Config_Uplink" Grid.Column="8" Grid.Row="8" Style="{StaticResource Button}" Click="Save_Config_Uplink_Click" IsEnabled="False">Save Config</Button>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="Sniff Only" Style="{StaticResource Tab_Header}">
+                <StackPanel Orientation="Horizontal" Background="LightGray">
+                    <Grid Width="392">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="75.4"/>
+                            <ColumnDefinition Width="56*"/>
+                            <ColumnDefinition Width="56*"/>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="39*"/>
+                            <ColumnDefinition Width="35*"/>
+                            <ColumnDefinition Width="9*"/>
+                            <ColumnDefinition Width="100*"/>
+                            <ColumnDefinition Width="10*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="20*"/>
+                            <RowDefinition Height="5*"/>
+                        </Grid.RowDefinitions>
+                        <TextBlock x:Name="Config_Name_S" Grid.Column="1" Grid.Row="0" Style="{StaticResource Subheading}" Margin="0,0,0,17" Grid.RowSpan="2">Name:</TextBlock>
+                        <TextBox x:Name="config_name_S" Grid.Row="0" Grid.ColumnSpan="3" Style="{StaticResource TextBox}" Margin="75,0,0,17" Grid.RowSpan="2" Grid.Column="1"/>
+                        <TextBlock Grid.Column="4" Grid.Row="0" Style="{StaticResource Subheading}" Grid.ColumnSpan="3" Margin="9,0,0,17" Grid.RowSpan="2">(1-8 chars)</TextBlock>
+
+                        <TextBlock x:Name ="Selant_S" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subheading}">Selant:</TextBlock>
+                        <RadioButton GroupName="Selant_S" x:Name="Selant_sm_S" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="75,0,56,0" Grid.Column="1">S M</RadioButton>
+                        <RadioButton GroupName="Selant_S" x:Name="Selant_ms_S" Grid.Column="2" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="57,0,9,0">M S</RadioButton>
+                        <RadioButton GroupName="Selant_S" x:Name="Selant_ss_S" Grid.Column="4" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="0,0,9,0">S S</RadioButton>
+                        <RadioButton GroupName="Selant_S" x:Name="Selant_mm_S" Grid.Column="6" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="3" Margin="0,0,9,0">M M</RadioButton>
+
+                        <TextBlock x:Name="Calimage_S" Grid.Column="1" Grid.Row="1" Style="{StaticResource Subheading}" Margin="0,16,0,16" Grid.RowSpan="3">Calimage:</TextBlock>
+                        <RadioButton GroupName="Calimage_S" x:Name="Cal_True_S" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="75,16,0,16" Grid.RowSpan="3" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Calimage_S" x:Name="Cal_False_S" Grid.Column="2" Grid.Row="1" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="56,16,0,16" Grid.RowSpan="3">False</RadioButton>
+
+                        <TextBlock x:Name="Extlna_S" Grid.Column="1" Grid.Row="3" Style="{StaticResource Subheading}">Extlna:</TextBlock>
+                        <RadioButton GroupName="Extlna_S" x:Name="Ext_True_S" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="75,0,0,0" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Extlna_S" x:Name="Ext_False_S" Grid.Column="2" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="56,0,0,0">False</RadioButton>
+
+                        <TextBlock x:Name="SF_S" Grid.Column="1" Grid.Row="3" Style="{StaticResource Subheading}" Margin="0,16,0,0" Grid.RowSpan="2">SF:</TextBlock>
+                        <RadioButton GroupName="SF_S" x:Name="SF_7_S" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="75,16,0,0" Grid.RowSpan="2" Grid.Column="1">SF7</RadioButton>
+                        <RadioButton GroupName="SF_S" x:Name="SF_10_S" Grid.Column="2" Grid.Row="3" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="56,16,0,0" Grid.RowSpan="2">SF10</RadioButton>
+
+                        <TextBlock x:Name="Default_S" Grid.Column="1" Grid.Row="4" Style="{StaticResource Subheading}" Margin="0,17,0,16" Grid.RowSpan="3">Make default:</TextBlock>
+                        <RadioButton GroupName="Default_S" x:Name="Default_True_S" Grid.Row="4" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="75,17,0,16" Grid.RowSpan="3" Grid.Column="1">True</RadioButton>
+                        <RadioButton GroupName="Default_S" x:Name="Default_False_S" Grid.Column="2" Grid.Row="4" Style="{StaticResource Radio}" Grid.ColumnSpan="2" Margin="56,17,0,16" Grid.RowSpan="3">False</RadioButton>
+                        <Button Name="Display_All_Btn_Sniff" IsEnabled="False" Content="View All Configs" Grid.Row="6" Click="Display_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button Name="Erase_All_Btn_Sniff" IsEnabled="False" Content="Erase All Configs" Grid.Row="7" Click="Erase_All_Btn_Click" Style="{StaticResource Button}" Grid.Column="8"/>
+                        <Button x:Name="Save_Config_Sniff" Grid.Column="8" Grid.Row="8"  Style="{StaticResource Button}" Click="Save_Config_Sniff_Click" IsEnabled="False">Save Config</Button>
+                    </Grid>
+                </StackPanel>
+            </TabItem>
+        </TabControl>
+
+
+    </Grid>
+</Page>
